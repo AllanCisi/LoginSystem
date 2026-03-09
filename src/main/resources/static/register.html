@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Conta | Login System</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/favicon.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="login-container">
+    <div class="login-header">
+        <h2>Criar Conta</h2>
+        <p>Preencha os dados para se registar.</p>
+    </div>
+
+    <form id="registerForm">
+        <div class="input-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" required placeholder="Ex: arthurtakeda">
+        </div>
+
+        <div class="input-group">
+            <label for="email">E-mail</label>
+            <div class="email-row">
+                <input type="email" id="email" required placeholder="seu@email.com">
+                <button type="button" id="sendCodeBtn" class="btn-secondary">Enviar Código</button>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label for="emailCode">Código do E-mail</label>
+            <input type="text" id="emailCode" required placeholder="Código de 6 dígitos" maxlength="6">
+        </div>
+
+        <div class="input-group">
+            <label for="password">Senha</label>
+            <input type="password" id="password" required placeholder="••••••••">
+        </div>
+
+        <div class="input-group">
+            <label for="confirmPassword">Confirmar Senha</label>
+            <input type="password" id="confirmPassword" required placeholder="••••••••">
+        </div>
+
+        <button type="submit" id="submitBtn">Criar Conta</button>
+    </form>
+
+    <p id="message" class="message"></p>
+
+    <div class="footer-link">
+        <span style="color: #94a3b8;">Já tem uma conta?</span>
+        <a href="index.html">Faça login</a>
+    </div>
+</div>
+
+<script src="register.js"></script>
+</body>
+</html>

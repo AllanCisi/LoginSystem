@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Login System</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .dashboard-container { max-width: 600px; margin: 40px auto; }
+        .profile-card { background-color: #1e293b; padding: 30px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
+        .badge { background-color: #22c55e; color: white; padding: 4px 10px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; }
+        .badge.disabled { background-color: #ef4444; }
+        .qr-box { text-align: center; background-color: white; padding: 20px; border-radius: 8px; display: inline-block; margin: 20px 0; }
+        .qr-box img { max-width: 200px; }
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+<div class="dashboard-container">
+
+    <div class="profile-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <h2>Bem-vindo(a)</h2>
+            <button id="logoutBtn" class="btn-secondary" style="background-color: transparent; border: 1px solid #ef4444; color: #ef4444;">Sair</button>
+        </div>
+
+        <p style="color: #94a3b8; margin-bottom: 5px;">Utilizador:</p>
+        <h3 id="usernameDisplay" style="margin-bottom: 15px; color: #3b82f6;">Carregando...</h3>
+
+        <p style="color: #94a3b8; margin-bottom: 5px;">E-mail de acesso:</p>
+        <p id="emailDisplay" style="margin-bottom: 20px; font-weight: bold;">Carregando...</p>
+
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <span>Status de Segurança:</span>
+            <span id="mfaBadge" class="badge disabled">2FA DESATIVADO</span>
+        </div>
+    </div>
+
+    <div id="setup2faSection" class="profile-card hidden">
+        <h3 style="margin-bottom: 10px;">🛡️ Ativar Autenticação de 2 Fatores</h3>
+        <p style="color: #94a3b8; font-size: 0.9rem;">1. Instale o Google Authenticator no seu telemóvel.<br>2. Escaneie o código QR abaixo.</p>
+
+        <div style="text-align: center;">
+            <div class="qr-box">
+                <img id="qrCodeImg" src="" alt="QR Code">
+            </div>
+        </div>
+
+        <form id="verify2faForm">
+            <div class="input-group">
+                <label for="code2fa">3. Digite o código de 6 dígitos gerado pela App:</label>
+                <input type="text" id="code2fa" required placeholder="000000" maxlength="6" style="text-align: center; font-size: 1.2rem; letter-spacing: 5px;">
+            </div>
+            <button type="submit" id="verifyBtn">Verificar e Ativar</button>
+        </form>
+        <p id="message" class="message"></p>
+    </div>
+
+</div>
+
+<script src="dashboard.js"></script>
+</body>
+</html>
